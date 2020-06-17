@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">KvartirkaClient</string>
+    <string name="enter_city">Введите город</string>
+    <string name="np_flats_founded">По данному запросу квартир не найдено :(</string>
+    <string name="network_is_unavailable">Сеть не обнаружена</string>
+    <string name="location_permissions_were_not_granted">Разрешения доступа к местоположению не были выданы</string>
+    <string name="Moscow">Москва</string>
+</resources>

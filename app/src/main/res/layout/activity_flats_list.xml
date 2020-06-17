@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="viewmodels.FlatsListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="views.FlatsListActivity">
+
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/citySv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:visibility="@{viewModel.cityLoading?View.GONE:View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:indeterminate="true"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:theme="@style/CircularProgress"
+            android:visibility="@{viewModel.cityLoading?View.VISIBLE:View.GONE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/citySv"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:src="@drawable/geoloc_32"
+            app:layout_constraintEnd_toStartOf="@+id/cityTv"
+            app:layout_constraintTop_toTopOf="@+id/cityTv" />
+
+        <TextView
+            android:id="@+id/cityTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/roboto_mono_medium"
+            android:text="@{viewModel.cityName}"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/citySv" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/flatsListRv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.flatsLoading?View.GONE:View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cityTv" />
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:theme="@style/CircularProgress"
+            android:indeterminate="true"
+            android:scaleX="0.2"
+            android:scaleY="0.2"
+            android:visibility="@{viewModel.flatsLoading?View.VISIBLE:View.GONE}"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

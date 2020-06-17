@@ -1,0 +1,70 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <data>
+        <variable
+            name="flat"
+            type="models.Flat" />
+        <variable
+            name="priceText"
+            type="String" />
+        <variable
+            name="flatCLickListener"
+            type="adapters.FlatClickListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:onClick="@{()->flatCLickListener.onClick(flat)}"
+        >
+
+        <TextView
+            android:id="@+id/adressTv"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/catamaran_semibold"
+            android:text="@{flat.address}"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/priceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/adressTv"
+            android:layout_alignEnd="@id/adressTv"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:background="@color/oliveGreen"
+            android:fontFamily="@font/catamaran_semibold"
+            android:text="@{priceText}"
+            android:textSize="30dp" />
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+              android:layout_width="100dp"
+              android:layout_height="100dp"
+              android:layout_marginTop="5dp"
+              android:layout_marginStart="20dp"
+              android:layout_marginEnd="100dp"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:civ_border_color="@color/softYellow"
+              android:id="@+id/flatPhotoIv"
+              />
+
+    </RelativeLayout>
+
+</layout>

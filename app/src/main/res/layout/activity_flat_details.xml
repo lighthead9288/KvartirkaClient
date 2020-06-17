@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="viewmodels.FlatDetailsViewModel" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            tools:context="views.FlatDetailsActivity">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/flatPhotosVp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/priceTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="36dp"
+                android:background="@color/oliveGreen"
+                android:fontFamily="@font/catamaran_semibold"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@{viewModel.price}"
+                android:textSize="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flatPhotosVp" />
+
+            <TextView
+                android:id="@+id/adressTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@{viewModel.address}"
+                android:fontFamily="@font/catamaran_semibold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/priceTv" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/roomsTv"
+                android:layout_marginStart="44dp"
+                android:text="@{viewModel.rooms}"
+                android:fontFamily="@font/catamaran_semibold"
+                app:layout_constraintStart_toEndOf="@+id/adressTv"
+                app:layout_constraintTop_toTopOf="@+id/adressTv" />
+
+            <TextView
+                android:id="@+id/buildingTypeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:text="@{viewModel.buildingType}"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/roomsTv"
+                app:layout_constraintTop_toTopOf="@+id/roomsTv" />
+
+            <TextView
+                android:id="@+id/descriptionTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="350dp"
+                android:paddingEnd="5dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:text="@{viewModel.description}"
+                android:textSize="20dp"
+                android:fontFamily="@font/catamaran_semibold"
+                android:singleLine="false"
+                app:layout_constraintStart_toStartOf="@+id/adressTv"
+                app:layout_constraintTop_toBottomOf="@+id/adressTv" />
+
+            <TextView
+                android:id="@+id/contactsTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="20dp"
+                android:text="@{viewModel.contacts}"
+                android:background="@color/lightYellow"
+                android:fontFamily="@font/catamaran_semibold"
+                app:layout_constraintStart_toStartOf="@+id/descriptionTv"
+                app:layout_constraintTop_toBottomOf="@+id/descriptionTv" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
